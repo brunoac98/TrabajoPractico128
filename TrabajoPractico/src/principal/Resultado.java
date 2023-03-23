@@ -5,15 +5,17 @@ public class Resultado {
 	private String equipo1;
 	private String equipo2;
 	private String resultado;
+	private String nroPartido;
 	
 	public Resultado() {
 		
 	}
 	
-	public Resultado(String equipo1, String equipo2, String resultado) {
+	public Resultado(String equipo1, String equipo2, String resultado, String nroPartido) {
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 		this.resultado = resultado;
+		this.nroPartido = nroPartido;
 	}
 	
 	public String getEquipo1() {
@@ -34,6 +36,11 @@ public class Resultado {
 	public void setResultado(String resultado) {
 		this.resultado = resultado;
 	}
-	
+	public String getNroPartido() {
+		return nroPartido;
+	}
+	public void setNroPartido(String nroPartido) {
+		this.nroPartido = nroPartido;
+	}
 	
 }

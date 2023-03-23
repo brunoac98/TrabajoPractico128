@@ -6,16 +6,20 @@ public class Pronostico {
 	private String equipo2;
 	private String pronostico;
 	private String nombre;
+	private String nroPartido;
+	private String nroDNI;
 	
 	public Pronostico() {
 		
 	}
 	
-	public Pronostico(String equipo1, String equipo2, String pronostico, String nombre) {
+	public Pronostico(String equipo1, String equipo2, String pronostico, String nombre, String nroPartido, String nroDNI) {
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 		this.pronostico = pronostico;
 		this.nombre = nombre;
+		this.nroPartido = nroPartido;
+		this.nroDNI = nroDNI;
 	}
 	
 	public String getEquipo1() {
@@ -41,8 +45,20 @@ public class Pronostico {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}	
+	public String getNroPartido() {
+		return nroPartido;
 	}
-	
+	public void setNroPartido(String nroPartido) {
+		this.nroPartido = nroPartido;
+	}
+	public String getNroDNI() {
+		return nroDNI;
+	}
+	public void setNroDNI(String nroDNI) {
+		this.nroDNI = nroDNI;
+	}
+
 	
 	
 	
