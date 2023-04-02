@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.List;
+
 public class Pronostico {
 	
 	private String pronostico;
@@ -43,6 +45,13 @@ public class Pronostico {
 		this.nroDNI = nroDNI;
 	}
 
+	public boolean validarPronostico(String pronosticoDato) {
+		if(!pronosticoDato.equals("1") && !pronosticoDato.equals("2") && !pronosticoDato.equals("E")) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	
 	
 	

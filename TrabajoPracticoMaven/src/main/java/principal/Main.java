@@ -10,14 +10,15 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String rutaPronostico = args[0]; //ruta de Pronostico.txt por argumentos
-		String rutaResultado = args[1];	//ruta de Resultado.txt por argumentos
+		String rutaPronostico = args[0]; //ruta de Pronostico.txt por argumentos -- src/main/java/Pronostico.txt
+		String rutaResultado = args[1];	//ruta de Resultado.txt por argumentos   -- src/main/java/Resultado.txt
+
 		List<String> pronosticoLista;
 		List<String> resultadoLista;
 		List<Pronostico> PronosticosColec = new ArrayList<>();
 		List<Persona> PersonaColec = new ArrayList<>();	
 		List<Resultado> ResultadoColec = new ArrayList<>();
-
+		
 		pronosticoLista = leerArchivo(rutaPronostico);
 		PronosticosColec = cargarPronostico(pronosticoLista,PronosticosColec);
 		PersonaColec   = cargarPersona(PronosticosColec,PersonaColec);
@@ -45,7 +46,7 @@ public class Main {
 			
 		} catch (IOException e) {
 			
-			System.out.println("Error leyendo resultados.");
+			System.out.println("Error leyendo archivo.");
 			List<String> archivoLista =	new ArrayList<>();
 			return archivoLista;
 		}
@@ -55,36 +56,28 @@ public class Main {
 public static List<Pronostico> cargarPronostico(List<String> pronosticoLista, List<Pronostico> pronosticosColec ) {
 		
 		String resultado;
+		Boolean validacion;
 				
 		for (String linea : pronosticoLista ) {
 			
 			Pronostico pronosticoObj = new Pronostico();
 			
 			String[] pronosticoSplit = linea.split(";");
-			pronosticoObj.setPronostico(pronosticoSplit[2]);
-			pronosticoObj.setNombre(pronosticoSplit[3]);
-			pronosticoObj.setNroPartido(pronosticoSplit[4]);
-			pronosticoObj.setNroDNI(pronosticoSplit[5]);
 			
-			pronosticosColec.add(pronosticoObj);
-			
-		/*	
-			switch(pronosticoObj.getPronostico()) {
-			case "1":
-				resultado = pronosticoObj.getEquipo1();
-				break;
-			case "2":	
-				resultado = pronosticoObj.getEquipo2();
-				break;
-			case "E":	
-				resultado = "Ninguno (empate)";
-				break;
-			default:
-				resultado = "Error al cargar pronostico";
-					};										*/
-		
-		//	System.out.println("PRONOSTICO DE: " + pronosticoObj.getNombre() + "\n||PARTIDO " + pronosticoObj.getNroPartido() + " : " + pronosticoObj.getEquipo1() + " VS " + pronosticoObj.getEquipo2() + "\n||EQUIPO GANADOR ESPERADO: " + resultado);			
-				  
+			validacion = pronosticoObj.validarPronostico(pronosticoSplit[2]);
+			if (validacion) {
+				
+				pronosticoObj.setPronostico(pronosticoSplit[2]);
+				pronosticoObj.setNombre(pronosticoSplit[3]);
+				pronosticoObj.setNroPartido(pronosticoSplit[4]);
+				pronosticoObj.setNroDNI(pronosticoSplit[5]);
+				pronosticosColec.add(pronosticoObj);
+				
+			} else {
+				System.out.println("El pronostico de " + pronosticoSplit[3] + " DNI: " + pronosticoSplit[5] + " PARTIDO NRO: " + pronosticoSplit[4] + " ES INVALIDO.");
+				System.out.println("Se ingreso: '" + pronosticoSplit[2] + "' Valores posibles: 1 (gana equipo 1) - 2 (gana equipo 2) - E (empate)");
+			}
+	  
 		}
 		
 		return pronosticosColec;
