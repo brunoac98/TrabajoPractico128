@@ -1,23 +1,23 @@
 package principal;
 
-import java.util.List;
-
 public class Pronostico {
 	
 	private String pronostico;
 	private String nombre;
 	private String nroPartido;
 	private String nroDNI;
+	private String nroRonda;
 	
 	public Pronostico() {
 		
 	}
 	
-	public Pronostico(String pronostico, String nombre, String nroPartido, String nroDNI) {
+	public Pronostico(String pronostico, String nombre, String nroPartido, String nroDNI, String nroRonda) {
 		this.pronostico = pronostico;
 		this.nombre = nombre;
 		this.nroPartido = nroPartido;
 		this.nroDNI = nroDNI;
+		this.nroRonda = nroRonda;
 	}
 	
 	public String getPronostico() {
@@ -43,6 +43,12 @@ public class Pronostico {
 	}
 	public void setNroDNI(String nroDNI) {
 		this.nroDNI = nroDNI;
+	}
+	public String getNroRonda() {
+		return nroRonda;
+	}
+	public void setNroRonda(String nroRonda) {
+		this.nroRonda = nroRonda;
 	}
 
 	public boolean validarPronostico(String pronosticoDato) {

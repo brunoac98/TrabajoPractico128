@@ -3,7 +3,7 @@
   <groupId>TrabajoPracticoMaven</groupId>
   <artifactId>TrabajoPracticoMaven</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-    <dependencies>
+     <dependencies>
 	  <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 	<dependency>
 	    <groupId>org.junit.jupiter</groupId>
@@ -21,6 +21,11 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.9.2</version>
+     </dependency>
+     <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.0</version>
      </dependency>
   	</dependencies>
 </project>

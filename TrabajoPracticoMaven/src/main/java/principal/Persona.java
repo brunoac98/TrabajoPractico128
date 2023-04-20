@@ -6,6 +6,7 @@ public class Persona {
 	private String nroDNI;
 	private int puntaje;
 	private int acertados;
+	private int pronosticos;
 
 	public Persona() {
 		
@@ -16,6 +17,7 @@ public class Persona {
 		this.puntaje = 0;
 		this.nroDNI = nroDNI;
 		this.acertados = 0;
+		this.pronosticos = 0;
 	}
 	
 	public String getNombre() {
@@ -42,10 +44,17 @@ public class Persona {
 	public void setAcertados(int acertados) {
 		this.acertados = acertados;
 	}
+	public int getPronosticos() {
+		return pronosticos;
+	}
+	public void setPronosticos(int pronosticos) {
+		this.pronosticos = pronosticos;
+	}
 	
 	public void addAcertado() {
 		this.acertados += 1;
 	}
+	
 	
 	
 }
